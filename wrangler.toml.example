@@ -1,0 +1,10 @@
+name = "hono-pages-supabase"
+compatibility_date = "2023-12-01"
+
+[vars]
+SUPABASE_URL = "your-supabase-url"
+SUPABASE_ANON_KEY = "your-supabase-anon-key"
+
+[env.dev.vars]
+SUPABASE_URL = "your-supabase-url"
+SUPABASE_ANON_KEY = "your-supabase-anon-key"

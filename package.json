@@ -4,7 +4,9 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "wrangler pages dev dist --compatibility-flags='nodejs_compat'",
-    "deploy": "$npm_execpath run build && wrangler pages deploy dist"
+    "deploy": "$npm_execpath run build && wrangler pages deploy dist",
+    "migrate:generate": "drizzle-kit generate:pg --config=drizzle/drizzle.config.ts",
+    "migrate:up": "npx tsx drizzle/migrate.ts"
   },
   "dependencies": {
     "drizzle-kit": "^0.20.14",
@@ -17,6 +19,8 @@
     "@hono/vite-cloudflare-pages": "^0.2.4",
     "@hono/vite-dev-server": "^0.10.0",
     "vite": "^5.0.12",
-    "wrangler": "^3.32.0"
+    "wrangler": "^3.32.0",
+    "pg": "^8.11.5",
+    "dotenv": "^16.4.5"
   }
 }

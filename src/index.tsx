@@ -1,11 +1,11 @@
 import { Hono, Context, Env } from 'hono';
 import { renderer } from './renderer';
-import { supabaseMiddleware } from './middleware/drizzle';
+import { drizzleMiddleware } from './middleware/drizzle.middleware';
 import { tasks } from './models/tasks.model';
 
 const app = new Hono();
 
-app.use(supabaseMiddleware);
+app.use(drizzleMiddleware);
 app.use(renderer);
 
 app.get('/', (c) => {

@@ -1,5 +1,5 @@
 import {} from 'hono';
-import { SupabaseClient } from '@supabase/supabase-js';
+import { PostgresJsDatabase } from 'drizzle-orm/postgres-js';
 
 declare module 'hono' {
   interface ContextRenderer {
@@ -12,13 +12,12 @@ declare module 'hono' {
   interface Env {
     // c.var types
     Variables: {
-      supabase: SupabaseClient;
+      drizzle: PostgresJsDatabase;
     };
 
     // c.env types
     Bindings: {
-      SUPABASE_URL: string;
-      SUPABASE_ANON_KEY: string;
+      DATABASE_URL: string;
     };
   }
 }

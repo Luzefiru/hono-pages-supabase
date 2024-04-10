@@ -3,9 +3,7 @@ compatibility_date = "2023-12-01"
 compatibility_flags = [ "nodejs_compat" ]
 
 [vars]
-SUPABASE_URL = "your-supabase-url"
-SUPABASE_ANON_KEY = "your-supabase-anon-key"
+DATABASE_URL="connection-string-transaction-mode-uri-from-supabase-database-settings"
 
 [env.dev.vars]
-SUPABASE_URL = "your-supabase-url"
-SUPABASE_ANON_KEY = "your-supabase-anon-key"
+DATABASE_URL="connection-string-transaction-mode-uri-from-supabase-database-settings"

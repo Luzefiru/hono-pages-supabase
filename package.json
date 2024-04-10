@@ -7,10 +7,10 @@
     "deploy": "$npm_execpath run build && wrangler pages deploy dist"
   },
   "dependencies": {
-    "@supabase/ssr": "^0.1.0",
-    "@supabase/supabase-js": "2.39.8",
-    "@supabase/auth-js": "^2.62.0",
-    "hono": "^4.2.1"
+    "drizzle-kit": "^0.20.14",
+    "drizzle-orm": "^0.30.7",
+    "hono": "^4.2.1",
+    "postgres": "^3.4.4"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20240208.0",

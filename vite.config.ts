@@ -5,7 +5,7 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
   ssr: {
-    external: ['@supabase/ssr'], // added as per suggestion by Yusukebe: https://github.com/orgs/honojs/discussions/2456#discussioncomment-9057286
+    external: ['postgres'], // added as per suggestion by Yusukebe: https://github.com/orgs/honojs/discussions/2456#discussioncomment-9057286
   },
   plugins: [
     build(),

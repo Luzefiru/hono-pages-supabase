@@ -10,27 +10,30 @@ export const supabaseMiddleware: MiddlewareHandler = async (
 ) => {
   const { SUPABASE_URL, SUPABASE_ANON_KEY } = env(c);
 
-  const client = createServerClient(
-    SUPABASE_URL ?? '',
-    SUPABASE_ANON_KEY ?? '',
-    {
-      cookies: {
-        get: (key: string) => {
-          return getCookie(c, key);
-        },
-        set: (key: string, value: any, options: object) => {
-          setCookie(c, key, value, options);
-        },
-        remove: (key: string, options: object) => {
-          deleteCookie(c, key, options);
-        },
+  const url = import.meta.env.PROD
+    ? SUPABASE_URL ?? ''
+    : import.meta.env.VITE_SUPABASE_URL;
+  const anonKey = import.meta.env.PROD
+    ? SUPABASE_ANON_KEY ?? ''
+    : import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+  const client = createServerClient(url, anonKey, {
+    cookies: {
+      get: (key: string) => {
+        return getCookie(c, key);
       },
-      cookieOptions: {
-        httpOnly: true,
-        secure: true,
+      set: (key: string, value: any, options: object) => {
+        setCookie(c, key, value, options);
       },
-    }
-  );
+      remove: (key: string, options: object) => {
+        deleteCookie(c, key, options);
+      },
+    },
+    cookieOptions: {
+      httpOnly: true,
+      secure: true,
+    },
+  });
   c.set('supabase', client);
   await next();
 };

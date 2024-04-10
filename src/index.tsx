@@ -1,8 +1,10 @@
 import { Hono, Context, Env } from 'hono';
 import { renderer } from './renderer';
+import { supabaseMiddleware } from './middleware/supabase';
 
 const app = new Hono();
 
+app.use(supabaseMiddleware);
 app.use(renderer);
 
 app.get('/', (c) => {
